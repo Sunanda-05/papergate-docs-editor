@@ -1,105 +1,237 @@
-import ThemeToggle from "@/components/ThemeToggle";
-import Image from "next/image";
+import React, { useState, useEffect } from "react";
+import {
+  ArrowRight,
+  FileText,
+  Share2,
+  Lock,
+  Sparkles,
+  Menu,
+  X,
+  Check,
+  Star,
+} from "lucide-react";
+import Navbar from "@/components/common/Navbar";
+import ScreenshotCarousel from "@/components/common/Carousel";
+import Link from "next/link";
 
-export default function Home() {
+const Home = () => {
+  const features = [
+    {
+      icon: <FileText className="w-5 h-5" />,
+      title: "Rich editing",
+      description:
+        "Write with a powerful editor that supports formatting, tables, and more.",
+    },
+    {
+      icon: <Share2 className="w-5 h-5" />,
+      title: "Flexible sharing",
+      description:
+        "Share your notes with others via link, token, or set permissions for view or edit access.",
+    },
+    {
+      icon: <Lock className="w-5 h-5" />,
+      title: "Private & secure",
+      description: "Your data is encrypted and only accessible by you.",
+    },
+    {
+      icon: <Sparkles className="w-5 h-5" />,
+      title: "Smart organization",
+      description: "Tag, categorize, and find your notes instantly.",
+    },
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <ThemeToggle/>
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Navigation */}
+      <Navbar />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero Section */}
+      <section className="max-w-6xl mx-auto px-6 pt-16 pb-24">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 p-1">
+            Write, plan, organize.
+            <span className="block text-muted-foreground">
+              All in one place.
+            </span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+            A beautiful, minimal workspace where better ideas come to life.
+            Perfect for individuals and teams.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href={"/doc"}>
+              <button className="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 transition-colors">
+                Get started for free
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </button>
+            </Link>
+            <Link href={"/demo"}>
+              <button className="inline-flex items-center justify-center rounded-md text-sm font-medium border border-input bg-background h-11 px-8 transition-colors">
+                See how it works
+              </button>
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+        {/* Screenshot Display */}
+        <ScreenshotCarousel />
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="max-w-6xl mx-auto px-6 py-24">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            Everything you need to stay organized
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Simple, powerful tools that grow with you. From quick notes to
+            complex projects.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => (
+            <div key={index} className="text-center group">
+              <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-muted/80 transition-colors">
+                {feature.icon}
+              </div>
+              <h3 className="font-semibold mb-2">{feature.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="max-w-4xl mx-auto px-6 py-6 text-center">
+        <div className="bg-card border rounded-2xl p-12">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            Start writing better today
+          </h2>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href={"/doc"}>
+            <button className="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 transition-colors">
+              Get started for free
+            </button>
+            </Link>
+            <button className="inline-flex items-center justify-center rounded-md text-sm font-medium border border-input bg-background h-11 px-8 transition-colors">
+              Contact sales
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t mt-24">
+        <div className="max-w-6xl mx-auto px-6 py-12">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center space-x-2 mb-4">
+                <div className="w-6 h-6 bg-muted rounded flex items-center justify-center">
+                  <FileText className="w-3 h-3" />
+                </div>
+                <span className="font-semibold">PaperGate</span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                A better way to write, plan, and organize your ideas.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Product</h4>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <a
+                  href="#"
+                  className="block hover:text-foreground transition-colors"
+                >
+                  Features
+                </a>
+                <a
+                  href="#"
+                  className="block hover:text-foreground transition-colors"
+                >
+                  Pricing
+                </a>
+                <a
+                  href="#"
+                  className="block hover:text-foreground transition-colors"
+                >
+                  Changelog
+                </a>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Company</h4>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <a
+                  href="#"
+                  className="block hover:text-foreground transition-colors"
+                >
+                  About
+                </a>
+                <a
+                  href="#"
+                  className="block hover:text-foreground transition-colors"
+                >
+                  Blog
+                </a>
+                <a
+                  href="#"
+                  className="block hover:text-foreground transition-colors"
+                >
+                  Careers
+                </a>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Support</h4>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <a
+                  href="#"
+                  className="block hover:text-foreground transition-colors"
+                >
+                  Help Center
+                </a>
+                <a
+                  href="#"
+                  className="block hover:text-foreground transition-colors"
+                >
+                  Contact
+                </a>
+                <a
+                  href="#"
+                  className="block hover:text-foreground transition-colors"
+                >
+                  Status
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="border-t mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
+            <p className="text-sm text-muted-foreground">
+              © 2025 PaperGate. All rights reserved.
+            </p>
+            <div className="flex items-center space-x-4 mt-4 md:mt-0">
+              <a
+                href="#"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Privacy
+              </a>
+              <a
+                href="#"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Terms
+              </a>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );
-}
+};
+
+export default Home;

@@ -224,6 +224,7 @@ const EditorInterface: React.FC<RichTextInterfaceProps> = ({
 
         {/* Editor Placeholder */}
         <div className="flex flex-col justify-between bg-background dark:bg-background border-x border-slate-200 dark:border-slate-700 p-8 min-h-[400px]">
+          <div className="">
           <SimpleEditor
             key={editStates.content ? "editing" : "saved"}
             readOnly={!canEdit || (isExistingDoc && !editStates.content)}
@@ -232,6 +233,7 @@ const EditorInterface: React.FC<RichTextInterfaceProps> = ({
             }
             content={formData?.content}
           />
+          </div>
           {isExistingDoc && canEdit && (
             <div className="flex justify-between ">
               <Button

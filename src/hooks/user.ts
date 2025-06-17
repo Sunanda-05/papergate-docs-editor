@@ -1,4 +1,4 @@
-import { fetchUserIdByEmail } from "@/lib/api/user";
+import { fetchProfile, fetchUserIdByEmail } from "@/lib/api/user";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetUserIdQuery = (
@@ -9,5 +9,13 @@ export const useGetUserIdQuery = (
     queryKey: ["user", email],
     queryFn: () => fetchUserIdByEmail(email),
     enabled: enabled && !!email, // only run if explicitly enabled and email is non-empty
+  });
+};
+
+export const useGetProfile = (
+) => {
+  return useQuery({
+    queryKey: ["profile"],
+    queryFn: () => fetchProfile(),
   });
 };

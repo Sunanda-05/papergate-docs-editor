@@ -9,3 +9,10 @@ export const fetchUserIdByEmail = async (email: string) => {
   );
   return res.json();
 };
+
+export const fetchProfile = async () => {
+  const res = await apiFetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user`, {
+    method: "GET",
+  });
+  return res.json();
+};
