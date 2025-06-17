@@ -11,7 +11,11 @@ export interface CreateDocumentPayload {
 }
 
 export interface SharedWithEntry {
-  user: string;
+  user: {
+    _id: string;
+    email: string,
+    name: string
+  }
   permission: "read" | "edit";
 }
 

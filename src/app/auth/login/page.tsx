@@ -1,30 +1,13 @@
-"use client"
-
-import { useLoginMutation } from '@/hooks/auth'
-import React from 'react'
+import LoginForm from "@/components/auth/LoginForm";
 
 const LoginPage = () => {
-
-    const {mutate: login} = useLoginMutation()
-    const handleSubmit = (e: React.FormEvent)=>{
-        e.preventDefault();
-        const form = e.currentTarget;
-        
-    // const email = (form.elements.namedItem('email') as HTMLInputElement).value;
-    // const password = (form.elements.namedItem('password') as HTMLInputElement).value;
-        login({
-            email: "testuser1@example.com", password: "1234"
-        })
-    }
   return (
-    <div>
-        <form onSubmit={(e)=>handleSubmit(e)}>
-            <input type='email' name='email'/>
-            <input type='password' name='password'/>
-            <input type='submit'/>
-        </form>
+    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+      <div className="w-full max-w-sm">
+        <LoginForm />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;

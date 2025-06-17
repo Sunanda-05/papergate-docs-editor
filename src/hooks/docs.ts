@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   keepPreviousData,
@@ -16,17 +16,20 @@ import {
   patchDocument,
   putDocument,
 } from "@/lib/api/docs";
-import { CreateDocumentPayload, DocType } from "@/types/docs";
+import {
+  CreateDocumentPayload,
+  DocType,
+  PaginatedDocuments,
+} from "@/types/docs";
 
 import { Filters } from "@/types/filter";
 import { buildQueryParams } from "@/lib/utils";
 
-
 export const useDocsQuery = (filters?: Filters) => {
-  return useQuery({
+  return useQuery<PaginatedDocuments>({
     queryKey: ["docs", filters],
     queryFn: async () => {
-      const query = filters? buildQueryParams(filters): null;
+      const query = filters ? buildQueryParams(filters) : null;
       const res = await apiFetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/document?${query}`
       );
@@ -62,7 +65,7 @@ export function usePatchDocumentMutation() {
       queryClient.setQueryData<DocType>(["document", id], (old) => {
         if (!old) return undefined;
         return {
-          ...(old ?? {}),
+          ...structuredClone(old ?? {}),
           ...updates,
         };
       });
@@ -72,20 +75,20 @@ export function usePatchDocumentMutation() {
     // Rollback on error
     onError: (err, { id }, context) => {
       if (context?.previousDoc) {
-        queryClient.setQueryData(["document", id], context.previousDoc);
+        queryClient.setQueryData(["docs", id], context.previousDoc);
       }
     },
 
     // update the fresh doc
     onSuccess: (updatedDoc, { id }) => {
-      queryClient.setQueryData(["document", id], updatedDoc);
+      queryClient.setQueryData(["docs", id], updatedDoc);
     },
   });
 }
 
 export const useDocumentQuery = (id: string) => {
   return useQuery<DocType>({
-    queryKey: ["document", id],
+    queryKey: ["docs", id],
     queryFn: () => fetchDocument(id),
     enabled: !!id,
     meta: {
@@ -106,7 +109,7 @@ export const usePutDocumentMutation = () => {
   return useMutation({
     mutationFn: putDocument,
     onSuccess: (updatedDoc) => {
-      queryClient.setQueryData(["document", updatedDoc._id], updatedDoc);
+      queryClient.setQueryData(["docs", updatedDoc._id], updatedDoc);
     },
     meta: {
       optimistic: true,
@@ -123,20 +126,18 @@ export const useDeleteDocumentMutation = () => {
   return useMutation({
     mutationFn: deleteDocument,
     onSuccess: (_, id) => {
-      queryClient.removeQueries({ queryKey: ["document", id] });
+      queryClient.removeQueries({ queryKey: ["docs", id] });
     },
   });
 };
 
 export const useInfiniteDocuments = () => {
   return useInfiniteQuery({
-    queryKey: ['documents'],
+    queryKey: ["documents"],
     queryFn: ({ pageParam = 1 }) => fetchInfiniteDocuments(pageParam),
     initialPageParam: 1,
     getNextPageParam: (lastPage) => {
-      return lastPage.meta.hasNext
-        ? lastPage.meta.currentPage + 1
-        : undefined; // stop if no next page
+      return lastPage.meta.hasNext ? lastPage.meta.currentPage + 1 : undefined; // stop if no next page
     },
   });
 };

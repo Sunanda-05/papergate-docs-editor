@@ -3,15 +3,17 @@ import { apiFetch } from "../fetcher";
 export const shareDocument = async ({
   id,
   userId,
+  permission
 }: {
   id: string;
   userId: string;
+  permission: "read" | "edit"
 }) => {
   const res = await apiFetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/document/${id}/share`,
     {
       method: "PATCH",
-      body: JSON.stringify({ userId }),
+      body: JSON.stringify({ userId, permission }),
     }
   );
   return res.json();
@@ -33,3 +35,4 @@ export const unshareDocument = async ({
   );
   return res.json();
 };
+

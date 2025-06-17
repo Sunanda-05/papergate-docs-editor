@@ -1,9 +1,28 @@
-import React from 'react'
+"use client";
+
+import {
+  useCreateDocument,
+} from "@/hooks/docs";
+import React from "react";
+import EditorInterface from "@/components/editor/EditorInterface";
+import { DocumentFormData } from "@/types/components";
 
 const NewDoc = () => {
-  return (
-    <div>NewDoc</div>
-  )
-}
+  const {
+    mutate: saveDoc,
+    isError,
+    isPending,
+    isSuccess,
+  } = useCreateDocument();
+  const handleSave = (formData: DocumentFormData) => {
+    saveDoc(formData);
+  };
 
-export default NewDoc
+  return (
+    <div>
+      <EditorInterface onSave={handleSave} />
+    </div>
+  );
+};
+
+export default NewDoc;

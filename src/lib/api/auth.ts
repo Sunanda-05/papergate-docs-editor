@@ -38,7 +38,7 @@ export const login = async (email: string, password: string) => {
   }
 
   const data = await res.json();
-  useAuthStore.getState().setAccessToken(data.accessToken);
+  useAuthStore.getState().setAuthState(data.accessToken, data.userId);
   return data;
 };
 

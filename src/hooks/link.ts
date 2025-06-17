@@ -1,21 +1,23 @@
-"use client"
+"use client";
 
-import { disableLinkToken, fetchDocumentByLinkToken, regenerateLinkToken } from "@/lib/api/link";
+import {
+  disableLinkToken,
+  fetchDocumentByLinkToken,
+  regenerateLinkToken,
+} from "@/lib/api/link";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
-
-export const usePublicDocumentQuery = (linkToken: string) => {
-    return useQuery({
-        queryKey: ["public-document", linkToken],
-        queryFn: () => fetchDocumentByLinkToken(linkToken),
-        enabled: !!linkToken, // Only run if token exists
+export const useLinkTokenDocumentQuery = (linkToken: string) => {
+  return useQuery({
+    queryKey: ["link", linkToken],
+    queryFn: () => fetchDocumentByLinkToken(linkToken),
+    enabled: !!linkToken, // Only run if token exists
     networkMode: "always", // allow fetching even when offline
   });
 };
 
-
 export const useDisableLinkMutation = () => {
-    const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
   return useMutation({
     mutationFn: disableLinkToken,
     onSuccess: (updatedDoc) => {
@@ -25,7 +27,7 @@ export const useDisableLinkMutation = () => {
 };
 
 export const useRegenerateLinkMutation = () => {
-    const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
   return useMutation({
     mutationFn: regenerateLinkToken,
     onSuccess: (updatedDoc) => {

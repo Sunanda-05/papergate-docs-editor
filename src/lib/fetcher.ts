@@ -25,8 +25,9 @@ export async function apiFetch<T>(
     });
 
     if (refreshRes.ok) {
-      const { token: newToken } = await refreshRes.json();
-      useAuthStore.getState().setAccessToken(newToken);
+      const { accessToken } = await refreshRes.json();
+      const userId = useAuthStore.getState().id;
+      useAuthStore.getState().setAuthState(accessToken, userId);
 
       return apiFetch<T>(url, options, false);
     } else {
