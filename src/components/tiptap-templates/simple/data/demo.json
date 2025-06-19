@@ -2,33 +2,174 @@
   "type": "doc",
   "content": [
     {
-      "type": "paragraph",
+      "type": "heading",
+      "attrs": {
+        "textAlign": null,
+        "level": 1
+      },
       "content": [
+        {
+          "type": "text",
+          "text": "Getting started"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "textAlign": null
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Welcome to the "
+        },
         {
           "type": "text",
           "marks": [
             {
-              "type": "bold"
+              "type": "italic"
             },
             {
-              "type": "italic"
+              "type": "highlight",
+              "attrs": {
+                "color": "var(--tt-color-highlight-yellow)"
+              }
             }
           ],
-          "text": "This is a paragraph with bold and italic text."
+          "text": "Note-Taking Guide"
+        },
+        {
+          "type": "text",
+          "text": "! This document outlines methods for improving focus, organization, and clarity while working or studying."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "textAlign": null
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Start by reviewing the following notes and trying out different techniques to find what works best for you."
+        }
+      ]
+    },
+    {
+      "type": "codeBlock",
+      "attrs": {
+        "language": null
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "focus.start()\norganize.daily_notes()\nreview.weekly_reflection()"
         }
       ]
     },
     {
       "type": "heading",
       "attrs": {
-        "level": 1
+        "textAlign": null,
+        "level": 2
       },
       "content": [
         {
           "type": "text",
-          "text": "Heading 1"
+          "text": "Features"
         }
       ]
+    },
+    {
+      "type": "blockquote",
+      "content": [
+        {
+          "type": "paragraph",
+          "attrs": {
+            "textAlign": null
+          },
+          "content": [
+            {
+              "type": "text",
+              "marks": [
+                {
+                  "type": "italic"
+                }
+              ],
+              "text": "A minimalist system for capturing ideas using markdown-like shortcuts "
+            },
+            {
+              "type": "text",
+              "marks": [
+                {
+                  "type": "code"
+                }
+              ],
+              "text": "**"
+            },
+            {
+              "type": "text",
+              "marks": [
+                {
+                  "type": "italic"
+                }
+              ],
+              "text": " and quick commands like "
+            },
+            {
+              "type": "text",
+              "marks": [
+                {
+                  "type": "code"
+                }
+              ],
+              "text": "⌘+B"
+            },
+            {
+              "type": "text",
+              "text": " for formatting your entries with ease."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Add images, adjust formatting, and use "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "highlight",
+              "attrs": {
+                "color": "var(--tt-color-highlight-blue)"
+              }
+            }
+          ],
+          "text": "visual cues"
+        },
+        {
+          "type": "text",
+          "text": " to improve recall and readability."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "attrs": {
+        "src": "/images/placeholder-image.png",
+        "alt": "placeholder-image",
+        "title": "placeholder-image"
+      }
     },
     {
       "type": "bulletList",
@@ -38,10 +179,61 @@
           "content": [
             {
               "type": "paragraph",
+              "attrs": {
+                "textAlign": "left"
+              },
               "content": [
                 {
                   "type": "text",
-                  "text": "Bullet point 1"
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "Superscript"
+                },
+                {
+                  "type": "text",
+                  "text": " (x"
+                },
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "superscript"
+                    }
+                  ],
+                  "text": "2"
+                },
+                {
+                  "type": "text",
+                  "text": ") and "
+                },
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "Subscript"
+                },
+                {
+                  "type": "text",
+                  "text": " (H"
+                },
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "subscript"
+                    }
+                  ],
+                  "text": "2"
+                },
+                {
+                  "type": "text",
+                  "text": "O) for scientific notation or math notes."
                 }
               ]
             }
@@ -52,10 +244,48 @@
           "content": [
             {
               "type": "paragraph",
+              "attrs": {
+                "textAlign": "left"
+              },
               "content": [
                 {
                   "type": "text",
-                  "text": "Bullet point 2"
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "Typographic conversion"
+                },
+                {
+                  "type": "text",
+                  "text": ": symbols like "
+                },
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "code"
+                    }
+                  ],
+                  "text": "->"
+                },
+                {
+                  "type": "text",
+                  "text": " turn into arrows "
+                },
+                {
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "bold"
+                    }
+                  ],
+                  "text": "→"
+                },
+                {
+                  "type": "text",
+                  "text": " automatically for cleaner writing."
                 }
               ]
             }
@@ -64,74 +294,104 @@
       ]
     },
     {
-      "type": "orderedList",
-      "content": [
-        {
-          "type": "listItem",
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "Ordered item 1"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "listItem",
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "Ordered item 2"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "blockquote",
-      "content": [
-        {
-          "type": "paragraph",
-          "content": [
-            {
-              "type": "text",
-              "text": "This is a blockquote."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "codeBlock",
+      "type": "paragraph",
       "attrs": {
-        "language": "javascript"
+        "textAlign": "left"
       },
       "content": [
         {
           "type": "text",
-          "text": "console.log('Hello, world!');"
+          "marks": [
+            {
+              "type": "italic"
+            }
+          ],
+          "text": "→ "
+        },
+        {
+          "type": "text",
+          "text": "Explore more tools and plugins to extend your note system as needed."
         }
       ]
     },
     {
-      "type": "image",
-      "attrs": {
-        "src": "https://example.com/image.jpg",
-        "alt": "Example Image",
-        "title": "Image Title"
-      }
+      "type": "horizontalRule"
     },
     {
-      "type": "horizontalRule"
+      "type": "heading",
+      "attrs": {
+        "textAlign": "left",
+        "level": 2
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Make it your own"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "textAlign": "left"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Switch between themes or layouts, and personalize fonts and spacing to support your workflow preferences."
+        }
+      ]
+    },
+    {
+      "type": "taskList",
+      "content": [
+        {
+          "type": "taskItem",
+          "attrs": {
+            "checked": true
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "textAlign": "left"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Set up daily journal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "taskItem",
+          "attrs": {
+            "checked": false
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "textAlign": "left"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Create topic-specific templates"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "attrs": {
+        "textAlign": "left"
+      }
     },
     {
       "type": "table",
@@ -147,7 +407,7 @@
                   "content": [
                     {
                       "type": "text",
-                      "text": "Cell 1"
+                      "text": "Task"
                     }
                   ]
                 }
@@ -161,7 +421,7 @@
                   "content": [
                     {
                       "type": "text",
-                      "text": "Cell 2"
+                      "text": "Priority"
                     }
                   ]
                 }
@@ -180,7 +440,7 @@
                   "content": [
                     {
                       "type": "text",
-                      "text": "Cell 3"
+                      "text": "Review weekly goals"
                     }
                   ]
                 }
@@ -194,7 +454,7 @@
                   "content": [
                     {
                       "type": "text",
-                      "text": "Cell 4"
+                      "text": "High"
                     }
                   ]
                 }

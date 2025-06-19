@@ -86,8 +86,6 @@ import {
   XSquareIcon,
   Trash2Icon,
 } from "lucide-react";
-import { type } from "os";
-import { types } from "util";
 
 const MainToolbarContent = ({
   onHighlighterClick,
@@ -293,6 +291,9 @@ export function SimpleEditor({
       Link.configure({ openOnClick: false }),
       Table.configure({
         resizable: true,
+        HTMLAttributes: {
+          class: "border-blue-200",
+        },
       }),
       TableRow,
       TableHeader,
@@ -308,7 +309,6 @@ export function SimpleEditor({
     },
     onUpdate: ({ editor }) => {
       if (onContentChange) {
-        console.log({ json: editor.getJSON() });
         onContentChange(editor.getJSON());
       }
     },

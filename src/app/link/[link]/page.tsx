@@ -36,7 +36,6 @@ const LinkDocPage = () => {
       doc.sharedWith?.some(
         (entry) => entry.user._id === userId && entry.permission === "edit"
       );
-    console.log({ doc, canEdit , owner: doc?.owner, userId});
 
   const handleUpdateDoc = (updates: Partial<DocumentFormData>) => {
     if(doc?._id && canEdit)

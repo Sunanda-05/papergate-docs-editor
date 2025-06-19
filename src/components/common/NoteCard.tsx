@@ -1,19 +1,13 @@
-import { useEditor, EditorContent } from "@tiptap/react"
-import StarterKit from "@tiptap/starter-kit"
 import { Card, CardContent } from "@/components/ui/card"
+import { getNotePreview } from "@/lib/utils";
 
 type NoteCardProps = {
-  note: any // tiptap JSON
+  note: any
   onClick: () => void
 }
 
 export function NoteCard({ note, onClick }: NoteCardProps) {
-  const editor = useEditor({
-    content: note,
-    editable: false,
-    extensions: [StarterKit],
-    immediatelyRender: false
-  })
+    const previewText = getNotePreview(note, 240);
 
   return (
     <Card
@@ -21,7 +15,8 @@ export function NoteCard({ note, onClick }: NoteCardProps) {
       className="cursor-pointer transition-shadow hover:shadow-md border-muted"
     >
       <CardContent className="p-4 overflow-hidden max-h-32 prose prose-sm">
-        <EditorContent editor={editor} className="line-clamp-3" />
+
+        {previewText}
       </CardContent>
     </Card>
   )

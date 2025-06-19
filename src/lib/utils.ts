@@ -21,3 +21,22 @@ export const buildQueryParams = (filters: Filters): string => {
 
   return params.toString();
 };
+
+export function getNotePreview(note: any, maxLength = 200): string {
+  if (!note || !note.content) return "";
+
+  const extractText = (nodes: any[]): string => {
+    return nodes
+      .map((node) => {
+        if (node.type === "text") return node.text;
+        if (node.content) return extractText(node.content);
+        return "";
+      })
+      .join(" ");
+  };
+
+  const fullText = extractText(note.content).trim();
+  return fullText.length > maxLength
+    ? fullText.slice(0, maxLength) + "..."
+    : fullText;
+}

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { NoteCard } from "./NoteCard"
+import { NoteCard } from "../../components/common/NoteCard"
 import {SimpleEditor} from "@/components/tiptap-templates/simple/simple-editor"
 import { Button } from "@/components/ui/button"
 

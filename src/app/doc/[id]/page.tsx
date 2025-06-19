@@ -38,7 +38,6 @@ const DocPage = () => {
     doc.sharedWith?.some(
       (entry) => entry.user._id === userId && entry.permission === "edit"
     );
-  console.log({ canEdit , owner: doc?.owner, userId});
 
 
   if (!doc) return <Spinner />;

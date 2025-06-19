@@ -60,9 +60,6 @@ const EditorInterface: React.FC<RichTextInterfaceProps> = ({
     tags: false,
   });
 
-  console.log(doc?.tags);
-  console.log({ formData });
-
   const [showVisibilityModal, setShowVisibilityModal] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
 
@@ -94,7 +91,6 @@ const EditorInterface: React.FC<RichTextInterfaceProps> = ({
   };
 
   const handleAddTag = (tag: string) => {
-    console.log({ tag });
     setFormData((prev) => ({
       ...prev,
       addTags: [...prev.addTags, tag],
@@ -116,7 +112,6 @@ const EditorInterface: React.FC<RichTextInterfaceProps> = ({
   };
 
   const handleSaveContent = () => {
-    console.log(formData?.content);
     onUpdate?.({ content: formData.content });
     toggleEditState("content");
   };

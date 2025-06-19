@@ -14,7 +14,6 @@ export const VisibilityModal: React.FC<VisibilityModalProps> = ({
 }) => {
   const [linkCopied, setLinkCopied] = useState(false);
 
-  console.log({ linkToken });
   const copyLink = async () => {
     if (linkToken) {
       const fullLink = `${process.env.NEXT_PUBLIC_APP_URL}/doc/${linkToken}`;

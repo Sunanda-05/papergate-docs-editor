@@ -19,7 +19,6 @@ export const useThemeStore = create<ThemeStore>()(
         setHasHydrated: (state) => set({ hasHydrated: state }),
         setTheme: (theme) => {
           set({ theme });
-          console.log(theme);
           document.documentElement.classList.remove("light", "dark");
           if (theme === "system") {
             const systemPref = window.matchMedia(

@@ -15,7 +15,7 @@ import {
   Globe,
   Folder,
 } from "lucide-react";
-import { NoteCard } from "./NoteCard";
+import { NoteCard } from "../../components/common/NoteCard";
 import { useDocsQuery } from "@/hooks/docs";
 import { useParams } from "next/navigation";
 import Link from "next/link";
@@ -239,7 +239,7 @@ const DocHomeLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="w-80 border-r bg-background flex flex-col">
           <div className="p-4 border-b">
             <Link href={"/doc/new"}>
-              <button className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+              <button className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors cursor-pointer">
                 <Plus className="w-4 h-4" />
                 New Note
               </button>
@@ -285,7 +285,7 @@ const DocHomeLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 flex flex-col bg-background">{children}</div>
+        <div className="flex-1 flex flex-col bg-background overflow-y-scroll">{children}</div>
       </div>
     </>
   );

@@ -1,8 +1,8 @@
 # 📝 Minimal WYSIWYG Editor Frontend
 
-This is the frontend for a rich-text editor project — something between *notion-lite* and *Google Docs on caffeine*. Built using **Next.js**, **TypeScript**, **TailwindCSS**, and the magnificent **Tiptap** editor.
+This is the frontend for a rich-text editor project — something between *notion-lite* and *Google Docs*. Built using **Next.js**, **TypeScript**, **Shadcn**, **React-query**, **Zustand** and **Tiptap** editor.
 
-Think: clean design, collaborative intent, with just the right amount of sass hidden in the code comments.
+Think: clean design, collaborative intent, with privacy and RBAC.
 
 ---
 

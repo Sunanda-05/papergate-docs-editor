@@ -62,7 +62,6 @@ const ShareModal: React.FC<ShareModalProps> = ({
     setShouldFetch(true); // this triggers the query
   };
 
-  console.log({ sharedUsers });
   const handleAddUser = () => {
     if (!email || !user?.id) return;
     onAddUser(user?.id, permission);
